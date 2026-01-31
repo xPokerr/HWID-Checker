@@ -1,0 +1,11 @@
+# PowerShell & Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Exported HWID dumps (timestamped files)
+*.txt
+
+# Logs and temporary files
+*.log
+*.tmp
+*.out
