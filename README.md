@@ -20,6 +20,28 @@ A lightweight, GUI-based tool written in PowerShell to retrieve and verify Hardw
 2. Right-click the file and select **Run with PowerShell**.
 3. Accept the UAC prompt (Admin rights are required to read hardware serials).
 
+## 🔧 Troubleshooting
+
+### "File is not digitally signed" Error
+If you encounter an error message similar to this when running the script:
+> `...HWID-Check.ps1 is not digitally signed. The script will not execute on the system.`
+
+This is a standard Windows security feature that blocks scripts downloaded from the internet. You can fix this easily using one of the methods below.
+
+#### Method 1: Unblock the File (Recommended)
+This removes the "Mark of the Web" restriction from the file.
+1. Open PowerShell in the folder where the script is located.
+2. Run the following command:
+   ```powershell
+   Unblock-File -Path .\HWID-Check.ps1
+3. Run the script again normally.
+
+#### Method 2: Bypass Execution Policy
+If you prefer not to unblock the file, you can launch it with a temporary policy bypass:
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File .\HWID-Check.ps1
+```
+
 ## ⚠️ Privacy & Security
 This script runs entirely locally. No data is sent to any server. You can audit the code directly in any text editor.
 
